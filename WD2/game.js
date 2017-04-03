@@ -9,6 +9,7 @@
     var x=195;
     var y=590;
     var interval_id;
+    var enemy_image=new Image()
     var moveLeft=false;
     var moveRight=false;
     var enemies=[   {x : 10, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
@@ -29,6 +30,7 @@
         context = canvas.getContext('2d');
         width = canvas.width;
         height = canvas.height;
+        enemy_image.src='angry_react.png'
 		window.addEventListener('keydown', activate, false);
 		window.addEventListener('keyup', deactivate, false);
 		window.addEventListener('keydown', fire, false);
@@ -81,7 +83,7 @@
 		for (var i=0; i<enemies.length; i+=1){
 			var e=enemies[i];
 			context.fillStyle='red';
-			context.fillRect(e.x, e.y+=speed, e.width, e.height);
+			context.drawImage(enemy_image, e.x, e.y+=speed);
 			if (e.y>=570) {
 				lose()
 			}
@@ -104,7 +106,7 @@
 		for (var i=0; i<enemies.length; i+=1) {
 			var e = enemies[i];
 			if (m.x+m.width>=e.x && m.x<=e.x+e.width && m.y>=e.y && m.y<=e.y+e.height) {
-				missiles.splice(m, 1)
+				missiles.splice(m_index, 1)
 				enemies.splice(i, 1)
 				enemies.push({x : e.x, y : getRandomNumber(-30, -100), width : 3*size, height : 3*size})
 				score+=1
