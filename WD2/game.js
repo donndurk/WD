@@ -63,7 +63,7 @@
 			var e=enemies[i];
 			context.fillStyle='red';
 			context.fillRect(e.x, e.y+=speed, e.width, e.height);
-			if(e.y===570) {
+			if (e.y>=570) {
 				lose()
 			}
 		}
