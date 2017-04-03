@@ -10,6 +10,7 @@
     var y=590;
     var interval_id;
     var enemy_image=new Image()
+    var tank=new Image()
     var moveLeft=false;
     var moveRight=false;
     var enemies=[   {x : 10, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
@@ -31,6 +32,7 @@
         width = canvas.width;
         height = canvas.height;
         enemy_image.src='angry_react.png'
+        tank.src='tank.png'
 		window.addEventListener('keydown', activate, false);
 		window.addEventListener('keyup', deactivate, false);
 		window.addEventListener('keydown', fire, false);
@@ -53,7 +55,7 @@
 		function fire() {
 			var keyCode=event.keyCode;
 			if (keyCode===32) {
-				missiles.push({x : x, y : y, width : 2, height : 7});
+				missiles.push({x : x, y : y-12, width : 2, height : 7});
 			}
 		}
 
@@ -82,7 +84,6 @@
 	function spawn_enemies() {
 		for (var i=0; i<enemies.length; i+=1){
 			var e=enemies[i];
-			context.fillStyle='red';
 			context.drawImage(enemy_image, e.x, e.y+=speed);
 			if (e.y>=570) {
 				lose()
@@ -116,8 +117,7 @@
 
     function draw() {
     	context.clearRect(0, 0, width, height);
-    	context.fillStyle='green';
-    	context.fillRect(x, y, size, size);
+    	context.drawImage(tank, x-13, y-18);
     	if (moveRight) {
     		x+=5
     	} else if (moveLeft) {
