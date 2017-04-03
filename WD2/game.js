@@ -5,7 +5,7 @@
     var height;
     var score=0;
     var size=10;
-    var speed=2;
+    var speed=0;
     var x=195;
     var y=590;
     var interval_id;
@@ -54,6 +54,25 @@
 				missiles.push({x : x, y : y, width : 2, height : 7});
 			}
 		}
+
+		var easy=document.getElementById("easy");
+		easy.addEventListener('click', easy_diff, false);
+		var normal=document.getElementById('normal');
+		normal.addEventListener('click', normal_diff, false);
+		var hard=document.getElementById('hard');
+		hard.addEventListener('click', hard_diff, false);
+
+		function easy_diff() {
+			speed=4;
+		}
+
+		function normal_diff() {
+			speed=5;
+		}
+		
+		function hard_diff() {
+			speed=6;
+		}		
 
 		interval_id = window.setInterval(draw, 33);
 	}
@@ -104,6 +123,9 @@
     	}
     	spawn_enemies();
     	render_missiles();
+    	context.fillStyle='Black';
+    	context.font='16px sans-serif';
+    	context.fillText("Score: " + score, 1, 15)
     }
 
     function lose(){
