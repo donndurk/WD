@@ -94,7 +94,7 @@
 	function render_missiles() {
 		for (var i=0; i<missiles.length; i+=1) {
 			var m=missiles[i];
-			context.fillStyle='orange';
+			context.fillStyle='#42f1f4';
 			context.fillRect(m.x+4, m.y-=5, m.width, m.height);
 			collides(m, i)
 			if (m.y<0) {
