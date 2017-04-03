@@ -9,7 +9,7 @@
     var x=195;
     var y=590;
     var interval_id;
-    var enemy_image=new Image()
+    var enemy_image =new Image()
     var tank=new Image()
     var moveLeft=false;
     var moveRight=false;
@@ -38,17 +38,17 @@
 		window.addEventListener('keydown', fire, false);
 		function activate(event) {
 			var keyCode=event.keyCode;
-			if (keyCode===37) {
+			if (keyCode===65) {
 				moveLeft=true;
-			} else if (keyCode===39) {
+			} else if (keyCode===68) {
 					moveRight=true;
 			}
 		}
 		function deactivate(event) {
 			var keyCode=event.keyCode;
-			if (keyCode===37) {
+			if (keyCode===65) {
 				moveLeft=false;
-			} else if (keyCode===39) {
+			} else if (keyCode===68) {
 				moveRight=false;
 			}
 		}
@@ -67,15 +67,15 @@
 		hard.addEventListener('click', hard_diff, false);
 
 		function easy_diff() {
-			speed=4;
+			speed=3;
 		}
 
 		function normal_diff() {
-			speed=5;
+			speed=4;
 		}
 		
 		function hard_diff() {
-			speed=6;
+			speed=5;
 		}		
 
 		interval_id = window.setInterval(draw, 33);
