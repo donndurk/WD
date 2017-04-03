@@ -125,7 +125,7 @@
     	}
     	spawn_enemies();
     	render_missiles();
-    	context.fillStyle='Black';
+    	context.fillStyle='white';
     	context.font='16px sans-serif';
     	context.fillText("Score: " + score, 1, 15)
     }
