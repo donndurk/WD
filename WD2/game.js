@@ -23,7 +23,7 @@
     				{x : 360, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size }
 	];
 	var missiles=[];
-	
+
 	document.addEventListener('DOMContentLoaded', init, false);
 
 	function init() {    
@@ -36,6 +36,7 @@
 		window.addEventListener('keydown', activate, false);
 		window.addEventListener('keyup', deactivate, false);
 		window.addEventListener('keydown', fire, false);
+		window.addEventListener('keydown', start, false);
 		function activate(event) {
 			var keyCode=event.keyCode;
 			if (keyCode===65) {
@@ -60,10 +61,10 @@
 		}
 
 		var easy=document.getElementById("easy");
-		easy.addEventListener('click', easy_diff, false);
 		var normal=document.getElementById('normal');
-		normal.addEventListener('click', normal_diff, false);
 		var hard=document.getElementById('hard');
+		easy.addEventListener('click', easy_diff, false);
+		normal.addEventListener('click', normal_diff, false);
 		hard.addEventListener('click', hard_diff, false);
 
 		function easy_diff() {
@@ -76,6 +77,13 @@
 		
 		function hard_diff() {
 			speed=5;
+		}
+
+		function start(event) {
+			var keyCode=event.keyCode;
+			if (keyCode===82) {
+				interval_id = window.setInterval(draw, 33);
+			}
 		}		
 
 		interval_id = window.setInterval(draw, 33);
@@ -118,11 +126,11 @@
     function draw() {
     	context.clearRect(0, 0, width, height);
     	context.drawImage(tank, x-13, y-18);
-    	if (moveRight) {
-    		x+=5
-    	} else if (moveLeft) {
-    		x-=5
-    	}
+	    if (moveRight && x<width-15) {
+	    	x+=5
+	    } else if (moveLeft && x>5) {
+	    	x-=5
+	    }
     	spawn_enemies();
     	render_missiles();
     	context.fillStyle='white';
@@ -130,12 +138,29 @@
     	context.fillText("Score: " + score, 1, 15)
     }
 
-    function lose(){
-    	window.alert("You lost");
-    	clearInterval(interval_id);
+    function lose() {
+    	context.fillStyle='#42f1f4';
+    	context.font='32px sans-serif';
+    	context.fillText("You lost", 150, 200);
+    	context.fillText("Your final score is " + score, 50, 250);
+    	context.fillText("Press \"R\" to restart", 60, 300);
+    	enemies=[   {x : 10, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 60, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 110, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 160, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 210, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 260, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 310, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
+    				{x : 360, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size }
+		];
+		speed=0;
+		missiles=[];
+		score=0;
+		clearInterval(interval_id);
     }
 
     function getRandomNumber(min, max) {
         return Math.round(Math.random() * (max - min)) + min;
     }
+
 })();
