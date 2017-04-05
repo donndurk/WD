@@ -13,6 +13,7 @@
     var tank=new Image()
     var moveLeft=false;
     var moveRight=false;
+    var gameState=1;
     var enemies=[   {x : 10, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
     				{x : 60, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
     				{x : 110, y: getRandomNumber(-30, -300), width : 3*size, height : 3*size },
@@ -36,7 +37,7 @@
 		window.addEventListener('keydown', activate, false);
 		window.addEventListener('keyup', deactivate, false);
 		window.addEventListener('keydown', fire, false);
-		window.addEventListener('keydown', start, false);
+		window.addEventListener('keydown', restart, false);
 		function activate(event) {
 			var keyCode=event.keyCode;
 			if (keyCode===65) {
@@ -79,10 +80,11 @@
 			speed=5;
 		}
 
-		function start(event) {
+		function restart(event) {
 			var keyCode=event.keyCode;
-			if (keyCode===82) {
+			if (keyCode===82 && gameState===0) {
 				interval_id = window.setInterval(draw, 33);
+				gameState=1;
 			}
 		}		
 
@@ -156,6 +158,7 @@
 		speed=0;
 		missiles=[];
 		score=0;
+		gameState=0;
 		clearInterval(interval_id);
     }
 
