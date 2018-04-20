@@ -50,7 +50,7 @@ nav a:hover {
 }
 
 .ui-widget-header {
-    background: red;
+    background: red !important;
     margin: 0px;
     border: 1px solid black;
     color: white;
@@ -91,5 +91,9 @@ div div h3 {
 #art1:hover, #art2:hover {
   background-color: lightgray;
   transition: 0.3s;
+}
+
+article {
+  margin-top: 3em;
 }
 
