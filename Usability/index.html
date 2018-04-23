@@ -36,54 +36,61 @@
             <nav>
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">Social Media</a></li>
+                    <li class="dropdown">
+                    	<a href="javascript:void(0)" class="dropbtn">Social Media</a>
+                    	<div class="dropdown-content">
+                    		<a href="https://twitter.com/MANUTD">Twitter</a>
+                    		<a href="https://www.facebook.com/manchesterunited/">Facebook</a>
+                    		<a href="https://www.instagram.com/MANCHESTERUNITED/">Instagram</a>
+                    	</div>
+                    </li>
                     <li><a href="">History</a></li>
                 </ul>
             </nav>
-            <h2>Latest News</h2>
+            <h2>Today on manutd.com</h2>
             <p>Click on an article to begin reading.</p>
             <div>
             	<div id="art1">
             		<img src="mou.jpg" alt="A smiling Jose Mourinho talks to Mauricio Pochettino." style="width:320px;height:180px;vertical-align:middle;">
             		<h3>Early Team News for FA Cup Semi Final</h3>
             	</div>
+            	<div id="resizable1" class="ui-widget-content">
+  					<h3 class="ui-widget-header">Early Team News for FA Cup Semi Final</h3>
+  					<article>
+  						<p class="first">Jose Mourinho has suggested that he will make changes to his Manchester United team from the midweek win at Bournemouth for 	Saturday’s Emirates FA Cup semi-final against Tottenham.
+  						</p>
+  						<p>
+							The boss made seven alterations for the 2-0 victory over the Cherries on Wednesday night from the side beaten 1-0 at home to West Bromwich Albion last Sunday, presumably with this weekend’s crucial cup clash at Wembley in mind.
+						</p>
+						<p>
+							A much-changed United ran out comfortable winners at the Vitality Stadium, thanks to goals from Chris Smalling and substitute Romelu Lukaku in each half.
+						</p>
+						<p>
+							After the game, Mourinho was asked by reporters if any players had put themselves in contention to start against Spurs with their performance against Bournemouth.
+						</p>
+						<p>
+							“I would say that every player on the pitch was positive and made themselves available for [the FA Cup semi-final on] Saturday,” he said.
+						</p>
+					</article>
+				</div>
             	<div id="art2">
             		<img src="fans.jpg" alt="Manchester United fans take pictures outside Wembley Stadium." style="width:320px;height:180px;vertical-align:middle;">
             		<h3>United Fans Can Shock Tottenham</h3>
             	</div>
+            	<div id="resizable2" class="ui-widget-content">
+  					<h3 class="ui-widget-header">United Fans Can Shock Tottenham</h3>
+  					<article>
+  						<p>Tottenham Hotspur may be playing Premier League games at Wembley this season but Manchester United are determined to ensure Saturday's Emirates FA Cup semi-final is nothing like a home tie for Mauricio Pochettino's side.
+  						</p>
+  						<p>
+							This is the Reds' 51st appearance at the famous stadium so it is hardly a new experience for the club and, despite some suggestions it is unfair a neutral fixture will be staged at Spurs' temporary home, the fact United will be backed by approximately 35,000 fans, far more supporters than were allowed to attend the league match in January, can help tip the balance in our favour.
+						</p>
+						<p>
+							Any perceived advantage for Tottenham is not an issue for Chris Smalling, as he explained in an exclusive interview with MUTV, with the in-form defender eagerly anticipating playing in front of the noisy Red Army under the Arch.
+						</p>
+					</article>
+				</div>
             </div>
-            <div id="resizable1" class="ui-widget-content">
-  				<h3 class="ui-widget-header">Early Team News for FA Cup Semi Final</h3>
-  				<article>
-  				<p class="first">Jose Mourinho has suggested that he will make changes to his Manchester United team from the midweek win at Bournemouth for 	Saturday’s Emirates FA Cup semi-final against Tottenham.
-  				</p>
-  				<p>
-					The boss made seven alterations for the 2-0 victory over the Cherries on Wednesday night from the side beaten 1-0 at home to West Bromwich Albion last Sunday, presumably with this weekend’s crucial cup clash at Wembley in mind.
-				</p>
-				<p>
-					A much-changed United ran out comfortable winners at the Vitality Stadium, thanks to goals from Chris Smalling and substitute Romelu Lukaku in each half.
-				</p>
-				<p>
-					After the game, Mourinho was asked by reporters if any players had put themselves in contention to start against Spurs with their performance against Bournemouth.
-				</p>
-				<p>
-					“I would say that every player on the pitch was positive and made themselves available for [the FA Cup semi-final on] Saturday,” he said.
-				</p>
-				</article>
-			</div>
-			<div id="resizable2" class="ui-widget-content">
-  				<h3 class="ui-widget-header">United Fans Can Shock Tottenham</h3>
-  				<article>
-  				<p>Tottenham Hotspur may be playing Premier League games at Wembley this season but Manchester United are determined to ensure Saturday's Emirates FA Cup semi-final is nothing like a home tie for Mauricio Pochettino's side.
-  				</p>
-  				<p>
-					This is the Reds' 51st appearance at the famous stadium so it is hardly a new experience for the club and, despite some suggestions it is unfair a neutral fixture will be staged at Spurs' temporary home, the fact United will be backed by approximately 35,000 fans, far more supporters than were allowed to attend the league match in January, can help tip the balance in our favour.
-				</p>
-				<p>
-					Any perceived advantage for Tottenham is not an issue for Chris Smalling, as he explained in an exclusive interview with MUTV, with the in-form defender eagerly anticipating playing in front of the noisy Red Army under the Arch.
-				</p>
-				</article>
-			</div>
 			<script>
 				$( "#art1" ).click(function() {
 					$( "#resizable1" ).show();
